@@ -19,8 +19,11 @@ A_YEAR_AGO = "a year ago"
 YEARS_AGO = "%s years ago"
 
 
-def format_date_text(date):
-    now = datetime.now()
+def format_date_text(date, now=None):
+
+    if now is None:
+        now = datetime.now()
+
     diff_seconds = (now - date).total_seconds()
 
     if(diff_seconds <= MINUTE_SECONDS):
